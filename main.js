@@ -1,5 +1,5 @@
 const container = document.querySelector("#container");
-let gridSize = 6;
+let gridSize = 16;
 displayGrid();
 
 // Iterating to create the gridSizeXgridSize divs grid
