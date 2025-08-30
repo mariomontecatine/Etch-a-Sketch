@@ -11,10 +11,14 @@
 <body>
     <script defer src="main.js"></script>
     <header id="header">
-    <h1>Etch-a-Sketch</h1>
-    <p>by @mariomontecatine</p>
+        <h1>Etch-a-Sketch</h1>
+        <p>by @mariomontecatine</p>
     </header>
-    <div id="controls"></div>
+    <div id="controls">
+        <label for="gridSize">Grid size:</label>
+        <input type="range" id="gridSize" name="gridSize" min="2" max="100" value="16">
+        <span id="gridValue">16</span>x<span id="gridValue2">16</span>
+    </div>
     <div id="container"></div>
 </body>
 

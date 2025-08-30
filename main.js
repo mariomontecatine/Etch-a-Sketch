@@ -1,5 +1,10 @@
 const container = document.querySelector("#container");
+const controls = document.querySelector("#controls");
+const changeGridSizeButton = document.createElement("button");
+const cleanGridButton = document.createElement("button");
 let gridSize = 16;
+
+
 displayGrid();
 
 // Iterating to create the gridSizeXgridSize divs grid
@@ -27,17 +32,28 @@ function displayGrid() {
     })
 }
 
-const controls = document.querySelector("#controls");
-const changeGridSizeButton = document.createElement("button");
-changeGridSizeButton.textContent = "Change size";
-changeGridSizeButton.classList.add("changeGridSizeButton");
+// Change canvas size slider
+const slider = document.getElementById("gridSize");
+const gridValue = document.getElementById("gridValue");
+const gridValue2 = document.getElementById("gridValue2");
 
-controls.appendChild(changeGridSizeButton);
-
-
-
-changeGridSizeButton.addEventListener("click", () => {
-    const sizeChosePrompt = window.prompt("Enter the size that you want (<=100)");
-    gridSize = sizeChosePrompt;
+slider.addEventListener("input", () => {
+    gridSize = slider.value;
+    gridValue.textContent = gridSize;
+    gridValue2.textContent = gridSize;
     displayGrid();
-}, false);
+})
+
+// Clean canvas button function
+cleanGridButton.textContent = "Clean canvas";
+cleanGridButton.setAttribute("class", "cleanGridButton");
+controls.appendChild(cleanGridButton);
+
+cleanGridButton.addEventListener("click", () => {
+    displayGrid();
+}, false)
+
+
+
+
+
