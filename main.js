@@ -2,8 +2,9 @@ const container = document.querySelector("#container");
 const controls = document.querySelector("#controls");
 const changeGridSizeButton = document.createElement("button");
 const cleanGridButton = document.createElement("button");
+const colorContainer = document.querySelector("#colorContainer");
 let gridSize = 16;
-
+let currentBackground = "white";
 
 displayGrid();
 
@@ -18,7 +19,7 @@ function displayGrid() {
         for (let j = 0; j < gridSize; j++) {
             const grid = document.createElement('div');
             grid.setAttribute('class', 'grid');
-            grid.style.opacity = 0;
+            grid.style.backgroundColor = currentBackground;
             containerElement.appendChild(grid);
         }
 
@@ -53,6 +54,28 @@ cleanGridButton.addEventListener("click", () => {
     displayGrid();
 }, false)
 
+// Change background color
+const whiteBackground = document.createElement("button");
+const blackBackground = document.createElement("button");
+
+whiteBackground.setAttribute("class", "colorButton");
+blackBackground.setAttribute("class", "colorButton");
+
+whiteBackground.textContent = "White"
+blackBackground.textContent = "Black"
+
+colorContainer.appendChild(whiteBackground);
+colorContainer.appendChild(blackBackground);
+
+whiteBackground.addEventListener("click", () => {
+    currentBackground = "white";
+    displayGrid();
+}, false);
+
+blackBackground.addEventListener("click", () => {
+    currentBackground = "black";
+    displayGrid();
+}, false);
 
 
 
