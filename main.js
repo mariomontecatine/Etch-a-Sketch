@@ -39,10 +39,16 @@ function displayGrid() {
         });
     }
     else if (darkening) {
+        let currentOpacity = 0.1;
         grids.forEach((element) => {
             element.addEventListener("mouseover", () => {
-                element.style.backgroundColor = "black";
-                element.style.opacity = "0.5";
+                if (currentOpacity >= 0.9) {
+                    currentOpacity = 0.1;
+                }
+                element.style.backgroundColor = `black`;
+                element.style.opacity = `${currentOpacity}`;
+                currentOpacity = currentOpacity + 0.1;
+
             }, false);
         });
     }
