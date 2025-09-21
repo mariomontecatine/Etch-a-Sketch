@@ -5,6 +5,7 @@ const cleanGridButton = document.createElement("button");
 const colorContainer = document.querySelector("#colorContainer");
 let gridSize = 16;
 let currentBackground = "white";
+let randomColor = false;
 
 displayGrid();
 
@@ -26,11 +27,23 @@ function displayGrid() {
 
     }
     const grids = document.querySelectorAll('.grid');
-    grids.forEach((element) => {
-        element.addEventListener("mouseover", () => {
-            element.setAttribute("style", "background-color: beige;");
-        }, false);
-    })
+    if (randomColor) {
+        grids.forEach((element) => {
+            element.addEventListener("mouseover", () => {
+                const r = getRandomIntInclusive(1, 256);
+                const g = getRandomIntInclusive(1, 256);
+                const b = getRandomIntInclusive(1, 256);
+                element.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            });
+        });
+    } else {
+        grids.forEach((element) => {
+            element.addEventListener("mouseover", () => {
+                element.style.backgroundColor = "beige";
+            }, false);
+        })
+    }
+
 }
 
 // Change canvas size slider
@@ -77,6 +90,27 @@ blackBackground.addEventListener("click", () => {
     displayGrid();
 }, false);
 
+// Random RGB values
+const randomColorButton = document.createElement("button");
+
+randomColorButton.setAttribute("class", "randomColorButton");
+randomColorButton.textContent = "Random colors";
+randomColorContainer.appendChild(randomColorButton);
+
+randomColorButton.addEventListener("click", () => {
+    if (randomColor) {
+        randomColor = false;
+    } else {
+        randomColor = true;
+    }
+    displayGrid();
+})
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 
 

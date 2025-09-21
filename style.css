@@ -17,7 +17,6 @@ body {
     border: 20px outset rgb(239, 112, 205);
     box-sizing: border-box;
     background-color: white;
-    
 }
 
 /* This are the columns */
@@ -35,10 +34,13 @@ body {
 
 #stuff {
     display: flex;
-    
+
 }
 
-.changeGridSizeButton, .cleanGridButton, .colorButton {
+.changeGridSizeButton,
+.cleanGridButton,
+.colorButton,
+.randomColorButton {
     border-radius: 10px;
     background-color: lightskyblue;
     color: white;
@@ -46,7 +48,7 @@ body {
     padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
- 
+
 h1 {
     margin-bottom: 0;
 }
@@ -56,9 +58,10 @@ p {
     margin-bottom: 0;
 }
 
-a:link, i {
-  color: black;
-  margin-bottom: 10px;
+a:link,
+i {
+    color: black;
+    margin-bottom: 10px;
 }
 
 header {
@@ -79,8 +82,14 @@ header {
     border: 20px outset rgb(239, 112, 205);
     box-sizing: border-box;
     margin-right: 20px;
+    padding-top: 13px;
 }
 
 label {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.controlPanelTitle {
+    font-weight: bolder;
+    font-size: 30px;
 }
