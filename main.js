@@ -119,6 +119,7 @@ randomColorButton.addEventListener("click", () => {
         randomColor = false;
     } else {
         randomColor = true;
+        darkening = false;
     }
     displayGrid();
 })
@@ -142,6 +143,7 @@ darkeningButton.addEventListener("click", () => {
         darkening = false;
     } else {
         darkening = true;
+        randomColor = false;
     }
     displayGrid();
 })
