@@ -6,6 +6,7 @@ const colorContainer = document.querySelector("#colorContainer");
 let gridSize = 16;
 let currentBackground = "white";
 let randomColor = false;
+let darkening = false;
 
 displayGrid();
 
@@ -36,7 +37,16 @@ function displayGrid() {
                 element.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
             });
         });
-    } else {
+    }
+    else if (darkening) {
+        grids.forEach((element) => {
+            element.addEventListener("mouseover", () => {
+                element.style.backgroundColor = "black";
+                element.style.opacity = "0.5";
+            }, false);
+        });
+    }
+    else {
         grids.forEach((element) => {
             element.addEventListener("mouseover", () => {
                 element.style.backgroundColor = "beige";
@@ -92,6 +102,7 @@ blackBackground.addEventListener("click", () => {
 
 // Random RGB values
 const randomColorButton = document.createElement("button");
+const randomColorContainer = document.querySelector("#randomColorContainer");
 
 randomColorButton.setAttribute("class", "randomColorButton");
 randomColorButton.textContent = "Random colors";
@@ -111,6 +122,24 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+// Progressive darkening effect
+const darkeningButton = document.createElement("button");
+const darkeningOption = document.querySelector("#darkeningOption");
+
+darkeningButton.setAttribute("class", "randomColorButton");
+darkeningButton.textContent = "Try it!";
+darkeningOption.appendChild(darkeningButton);
+
+darkeningButton.addEventListener("click", () => {
+    if (darkening) {
+        darkening = false;
+    } else {
+        darkening = true;
+    }
+    displayGrid();
+})
+
 
 
 
